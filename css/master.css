@@ -1,0 +1,25 @@
+aside{
+	float: right;
+	width: 30%;
+	padding-left: 5%;
+}
+
+#left_section{
+	float: left;
+	width: 60%;
+	padding-right: 5%;
+}
+
+#speakers{
+	border-top: 5px;
+	border-color: black;
+	height: 600px;
+}
+
+.speaker{
+	width: 250px;
+	height: 120px;
+}
+.speaker > img{
+	float: left;
+}
