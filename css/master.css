@@ -5,6 +5,9 @@ aside{
 	border-right: 2px solid grey;
 	padding: 0px 15px 0px 15px;
 }
+#banner{
+	width:100%
+}
 
 #left_section{
 	float: left;
