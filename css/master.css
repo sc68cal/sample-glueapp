@@ -1,18 +1,21 @@
 aside{
 	float: right;
 	width: 300px;
-	padding-left: 5%;
+	border-left: 2px solid grey;
+	border-right: 2px solid grey;
+	padding: 0px 15px 0px 15px;
 }
 
 #left_section{
 	float: left;
 	width: 35%;
-	padding-right: 5%;
 }
 
 #speakers{
-	border-top: 5px;
-	border-color: black;
+	margin-top: 10px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: grey;
 	height: 600px;
 }
 
