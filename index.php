@@ -49,6 +49,9 @@ class users extends viewmodel {
 }
 
 class register extends viewmodel {
+	function POST() {
+		print_r($_POST);
+	}
 }
 
 class login extends viewmodel {
