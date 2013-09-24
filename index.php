@@ -9,7 +9,9 @@ Twig_Autoloader::register();
 ActiveRecord\Config::initialize(function($cfg)
 {
   $cfg->set_model_directory('models/');
-  $cfg->set_connections(array('development' => 'sqlite://data.db'));
+  $cfg->set_connections(array('development' => 'sqlite://data.db',
+  ));
+  $cfg->set_default_connection('development');
 });
 
 $urls = array(
@@ -39,13 +41,13 @@ class index extends viewmodel {
 
 class users extends viewmodel {
 	function GET() {
-
+		echo $this->twig->render('users.html', array('users' => User::find('all')));
 	}
 }
 
 class register extends viewmodel {
 	function POST() {
-		print_r($_POST);
+		User::create($_POST);
 	}
 }
 
