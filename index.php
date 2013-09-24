@@ -5,16 +5,11 @@ require_once 'lib/php-activerecord/ActiveRecord.php';
 require_once 'lib/Twig/Autoloader.php';
 Twig_Autoloader::register();
 
-$connections = array(
-	'development' => 'sqlite://:memory:'
-);
-
 
 ActiveRecord\Config::initialize(function($cfg)
 {
   $cfg->set_model_directory('models/');
-  $cfg->set_connections(array('development' =>
-    'mysql://username:password@localhost/database_name'));
+  $cfg->set_connections(array('development' => 'sqlite://data.db'));
 });
 
 $urls = array(
