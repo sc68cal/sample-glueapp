@@ -32,7 +32,7 @@ class viewmodel {
 
 class index extends viewmodel {
 	function GET() {
-		echo $this->twig->render('index.html', array('name' => 'Sean'));
+		echo $this->twig->render('index.html');
 	}
 }
 
