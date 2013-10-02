@@ -1,8 +1,10 @@
 include apt
-include apache
 
 $www_packages = ['php5','sqlite3','php5-sqlite']
 
+class { 'apache':
+      default_mods => true,
+}
 
 
 exec { "apt-get update":
@@ -33,8 +35,4 @@ apache::vhost { '*:80':
       docroot => '/var/www/',
       directories => [ { path => '/var/www', allow_override => ['ALL'] } ],
       require=> Exec['reload']
-}
-
-file { "/etc/apache2/mods-available/":
-  ensure => "present",
 }
