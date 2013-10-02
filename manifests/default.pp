@@ -34,13 +34,16 @@ file{ "sqlite db perms":
 }
 
 exec{ "rm index.html":
-      command=>"/bin/rm /var/www/index.html"
+  path   => "/usr/bin:/usr/sbin:/bin",
+  command=>"rm /var/www/index.html",
+  onlyif => ["test -f /var/www/index.html"],
 }
 
 exec{ "git clone":
   path   => "/usr/bin:/usr/sbin:/bin",
   command => "git clone --recursive https://github.com/sc68cal/sample-glueapp.git /var/www",
-  require => Exec["rm index.html"]
+  require => Exec["rm index.html"],
+  onlyif => ["test ! -d /var/www/.git "],
 }
 
 exec { "sqlite setup":
@@ -48,4 +51,9 @@ exec { "sqlite setup":
   command => "sqlite3 /var/www/data.db < /var/www/db/schema.sqlite",
   onlyif => ["test ! -f /var/www/data.db"],
   require => Exec['git clone']
+}
+
+file{ "www folder":
+  path=> "/var/www/",
+  owner=>www-data,
 }
