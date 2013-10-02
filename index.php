@@ -3,6 +3,8 @@
 require_once('lib/glue/glue.php');
 require_once 'lib/php-activerecord/ActiveRecord.php';
 require_once 'lib/Twig/Autoloader.php';
+require_once 'models/user.php';
+
 Twig_Autoloader::register();
 
 
